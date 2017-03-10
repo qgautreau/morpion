@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Renforcement JS</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #box {
+            display: flex;
+            flex-wrap: wrap;
+            width: 50vh;
+            height: 50vh;
+            margin: 0 20px;
+        }
+
+        /* Div */
+        .cell {
+            width: calc(100% / 3);
+            border: 4px solid #034f67;
+            background-color: #0081aa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cell1, .cell3, .cell5, .cell7, .cell9, .cell11, .cell13, .cell15, .cell17, .cell19, .cell21, .cell23 {
+            background-color: #006be8;
+        }
+        .cell1:hover, .cell3:hover, .cell5:hover, .cell7:hover, .cell9:hover, .cell11:hover, .cell13:hover, .cell15:hover, .cell17:hover, .cell19:hover, .cell21:hover, .cell23:hover {
+            background-color: #04c623;
+        }
+        .cell2, .cell4, .cell6, .cell8, .cell10, .cell12, .cell14, .cell16, .cell18, .cell20, .cell22 {
+            background-color: #bada55;
+        }
+        .cell2:hover, .cell4:hover, .cell6:hover, .cell8:hover, .cell10:hover, .cell12:hover, .cell14:hover, .cell16:hover, .cell18:hover, .cell20:hover, .cell22:hover {
+            background-color: #04c623;
+        }
+
+        /* Table Tr Td */
+        #box2 {
+            width: 50vh;
+            height: 50vh;
+            margin: 0 20px;
+        }
+        .cellTr td {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #034f67;
+        }
+        .cellTr1 td, .cellTr3 td, .cellTr5 td, .cellTr7 td, .cellTr9 td {
+            background-color: #006be8;
+        }
+        .cellTr1 td:hover, .cellTr2 td:hover, .cellTr3 td:hover, .cellTr4 td:hover, .cellTr5 td:hover, .cellTr6 td:hover, .cellTr7 td:hover, .cellTr8 td:hover, .cellTr9 td:hover {
+            background-color: #04c623;
+        }
+        .cellTr2, .cellTr4, .cellTr6, .cellTr8 {
+            background-color: #bada55;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div" id="box">
+
+        </div>
+        <div class="div" id="box2">
+
+        </div>
+    </div>
+
+    <script>
+
+    var cont = document.getElementById('box');
+    var contTable = document.getElementById('box2');
+
+    var tab = [
+        [0],
+        [0, 1],
+        [0, 1, 2],
+        [0, 1, 2, 3],
+        [0, 1, 2, 3, 4],
+    ]
+
+    // Div
+    var count = 1;
+    for (var i = 0; i < tab.length; i++) {
+        // console.log(tab[i]);
+        for (var j = 0; j < tab[i].length; j++) {
+            var divElem = document.createElement('div');
+            divElem.className = "cell" + count++;
+            divElem.className += " cell";
+            cont.appendChild(divElem);
+        };
+    };
+
+
+    // Table
+    var count = 1;
+    for (var i = 0; i < tab.length; i++) {
+        // console.log(tab[i]);
+        var trElem = document.createElement('tr');
+        trElem.className = "cellTr" + count++;
+        trElem.className += " cellTr";
+        contTable.appendChild(trElem);
+        for (var j = 0; j < tab[i].length; j++) {
+            var tdElem = document.createElement('td');
+            trElem.appendChild(tdElem);
+        };
+    };
+
+    </script>
+
+</body>
+</html>
